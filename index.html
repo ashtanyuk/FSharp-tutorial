@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fsharp-tutorial by ashtanyuk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Fsharp-tutorial</h1>
+      <h2 class="project-tagline">Краткое введение в F#</h2>
+      <a href="https://github.com/ashtanyuk/FSharp-tutorial" class="btn">View on GitHub</a>
+      <a href="https://github.com/ashtanyuk/FSharp-tutorial/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ashtanyuk/FSharp-tutorial/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="Краткое-введение-в-fsharp" class="anchor" href="#%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B5-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-fsharp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Краткое введение в FSharp</h1>
+
+<h2>
+<a id="Особенности-программирования-на-fsharp" class="anchor" href="#%D0%9E%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0-fsharp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Особенности программирования на FSharp</h2>
+
+<ul>
+<li>основное назначение языка: программирование в функциональном стиле</li>
+<li>отступы и пробелы имеют значение при форматировании кода</li>
+<li>доступно окно интерпретатора, в котором можно выполнить команды (REPL)</li>
+<li>язык F# многое взял от <strong>OCaml</strong>
+</li>
+<li>доступны типы и библиотека .NET</li>
+</ul>
+
+<p><em>Все дальнейшие примеры приведены для интерактивной оболочки. Символ '&gt;' всегда обозначает приглашение интерпретатора и не набирается пользователем</em></p>
+
+<h2>
+<a id="Пример-использования-net" class="anchor" href="#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-net" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Пример использования .NET</h2>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">open</span> <span class="pl-en">System</span> <span class="pl-k">;;</span>
+<span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">now</span> <span class="pl-k">=</span> DateTime.Now <span class="pl-k">;;</span></pre></div>
+
+<h2>
+<a id="Комментарии" class="anchor" href="#%D0%9A%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Комментарии</h2>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-c">// - однострочный комментарий</span>
+<span class="pl-c"><span class="pl-c">(*</span></span>
+<span class="pl-c"> Многострочный комментарий</span>
+<span class="pl-c"> (может занимать несколько строк)</span>
+<span class="pl-c"><span class="pl-c">*)</span></span></pre></div>
+
+<h2>
+<a id="repl" class="anchor" href="#repl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>REPL</h2>
+
+<p>При использовании <strong>MS Visual Studio</strong> можно открыть окно <strong>F# interactive</strong> и вводить команды. Можно выделить в программе текст и послать его в REPL комбинацией: <em>Alt+Enter</em>.</p>
+
+<p>Вне <em>Visual Studio</em> запустить интерпретатор можно программой <em>fsi</em>.</p>
+
+<h2>
+<a id="Стандартные-типы" class="anchor" href="#%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Стандартные типы</h2>
+
+<p>Ниже перечислены основные типы с указанием суффиксов при связывании значений с именами:</p>
+
+<ul>
+<li>
+<strong>byte</strong> - <em>uy</em> - беззнаковый байт</li>
+<li>
+<strong>sbyte</strong> - <em>y</em> - знаковый байт</li>
+<li>
+<strong>int16</strong> - <em>s</em> - короткое целое</li>
+<li>
+<strong>uint16</strong> - <em>us</em> - беззнаковое короткое целое</li>
+<li>
+<strong>int32</strong> - по-умолчанию - обычное целое</li>
+<li>
+<strong>uint32</strong> - <em>u</em> - беззнаковое целое</li>
+<li>
+<strong>int64</strong> - <em>L</em> - длинное целое</li>
+<li>
+<strong>uint64</strong> - <em>UL</em> -  беззнаковое длинное целое</li>
+<li>
+<strong>float32</strong> - <em>f</em> - вещественное одинарной точности</li>
+<li>
+<strong>float</strong> - вещественное двойной точности</li>
+<li>
+<strong>decimal</strong> - <em>M</em> - вещественное фиксированной точности (28 цифр после запятой)</li>
+</ul>
+
+<p>Примеры создания значений:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">let</span> <span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">7</span>uy
+<span class="pl-k">let</span> <span class="pl-smi">b</span> <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">18</span>s
+<span class="pl-k">let</span> <span class="pl-smi">c</span> <span class="pl-k">=</span> <span class="pl-c1">0b1010101</span>y</pre></div>
+
+<p>Примеры с возведением в степень:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">d</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>UL <span class="pl-c1">56</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">b</span> : <span class="pl-v">uint64</span> <span class="pl-k">=</span> <span class="pl-c1">72057594037927936</span>UL</pre></div>
+
+<h2>
+<a id="Преобразования-типов" class="anchor" href="#%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Преобразования типов</h2>
+
+<p>Явные преобразования типов необходимы, поскольку в языке отсутствуют неявные преобразования. </p>
+
+<p>Функции преобразования имеют такие же названия, что и типы, например:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">e</span> <span class="pl-k">=</span> uint64 <span class="pl-c1">2</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">e</span> : <span class="pl-v">uint64</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>UL</pre></div>
+
+<h2>
+<a id="Сверхдлинные-числа" class="anchor" href="#%D0%A1%D0%B2%D0%B5%D1%80%D1%85%D0%B4%D0%BB%D0%B8%D0%BD%D0%BD%D1%8B%D0%B5-%D1%87%D0%B8%D1%81%D0%BB%D0%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Сверхдлинные числа</h2>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">open</span> <span class="pl-en">System.<span class="pl-en">Numerics</span></span>;;
+<span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">f</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>I <span class="pl-k">**</span> <span class="pl-c1">200</span> <span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">f</span> : <span class="pl-v">BigInteger</span> <span class="pl-k">=</span> 
+  <span class="pl-c1">16069380442589902755419620923411626.</span><span class="pl-k">......</span></pre></div>
+
+<h2>
+<a id="Символы-и-строки" class="anchor" href="#%D0%A1%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B-%D0%B8-%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Символы и строки</h2>
+
+<p>Все символы хранятся в юникоде:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">ch</span> <span class="pl-k">=</span> <span class="pl-s">'л'</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">ch</span> : <span class="pl-v">char</span> <span class="pl-k">=</span> <span class="pl-s">'л'</span>
+<span class="pl-k">&gt;</span> int ch<span class="pl-k">;;</span>
+vat it <span class="pl-k">:</span> int <span class="pl-k">=</span> <span class="pl-c1">1083</span></pre></div>
+
+<p>Строки:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">hello</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hello, world!<span class="pl-pds">"</span></span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">hello</span> : <span class="pl-v">string</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hello, world!<span class="pl-pds">"</span></span>
+<span class="pl-k">&gt;</span> hello.<span class="pl-k">[</span><span class="pl-c1">1</span><span class="pl-k">]</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">char</span> <span class="pl-k">=</span> <span class="pl-s">'e'</span></pre></div>
+
+<h2>
+<a id="Функции" class="anchor" href="#%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Функции</h2>
+
+<p>Для функционального языка программирования <strong>функция</strong> - центральное понятие.</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">square</span> <span class="pl-k">=</span> x <span class="pl-k">*</span> x<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">square</span> : <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+<span class="pl-k">&gt;</span>square <span class="pl-c1">2</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">4</span></pre></div>
+
+<p>Функция <strong>square</strong> принимает параметр <em>int</em> и возвращает результат типа <em>int</em>.</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">add</span> <span class="pl-v">x</span> <span class="pl-v">y</span> <span class="pl-k">=</span> x <span class="pl-k">+</span> y<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">add</span> : <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span></pre></div>
+
+<p>В данном случае функция <em>add</em> принимает два параметра и возвращает функцию, принимающую один параметр, возвращая, в свою очередь, целое число. </p>
+
+<p>Можно явно указать типы параметров:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">add</span> (<span class="pl-v">x</span> : <span class="pl-v">float</span>) <span class="pl-v">y</span> <span class="pl-k">=</span> x <span class="pl-k">+</span> y<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">add</span> : <span class="pl-v">float</span> -&gt; <span class="pl-v">float</span> -&gt; <span class="pl-v">float</span></pre></div>
+
+<p>Параметр обобщенного типа:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">prn</span> (<span class="pl-v">x</span> : <span class="pl-v">'a</span>) <span class="pl-k">=</span> x<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">prn</span> : <span class="pl-v">'a</span> -&gt; <span class="pl-v">'a</span></pre></div>
+
+<p>В качестве обобщенного типа может использоваться любой тип. </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ashtanyuk/FSharp-tutorial">Fsharp-tutorial</a> is maintained by <a href="https://github.com/ashtanyuk">ashtanyuk</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
