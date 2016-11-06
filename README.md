@@ -194,7 +194,24 @@ val prn : 'a -> 'a
 
 Очень полезны **генераторы** (специальные функции для генерации значений):
 
+..
 
+## Литература
+
+- *Крис Смит* **Программирование на F#**, Символ-Плюс, 2011.
+- *Chris Smith* **Programming F#**, O'Reilly Media, 2009.
+- *Jon Harrop, Don Syme* **F# for Scientists**, Wiley-Interscience, 2008.
+- *Robert Pickering, Kit Eason* **Beginning F# 4.0**, Apress, 2016.
+- *Dave Fancher* **The Book of F#: Breaking Free With Managed Functional Programming**, No Starch Press, 2014.
+- *Adnan Masood* **Learning F# Functional Data Structures and Algorithms**, Packt, 2015.
+- *Tomas Petricek, Phillip Trelford* **F# Deep Dives, Manning Publications**, 2014.
+- *swlaschin* **F# for Fun and Profit**, GITBOOK
+- *James Graff* **The Fsharp Handbook**, CreateSpace, 2016.
+- *Tomas Petricek, Jon Skeet* **Real-World Functional Programming: With Examples in F# and C#**, Manning Publications, 2010.
+- *Robert Pickering* **Foundations of F#**, Apress, 2007.
+- *Robert Pickering* **Beginning F#**, Apress, 2009.
+- *Don Syme* **Expert F#**, Apress, 2007.
+- *Michael R. Hansen, Hans Rischel* **Functional Programming Using F#**, Cambridge Press, 2013.
 
 
 
