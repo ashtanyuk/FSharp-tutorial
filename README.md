@@ -1,5 +1,6 @@
 # Краткое введение в FSharp
 
+![](./pics/fsharp256.png)
 
 ## Введение
 
@@ -24,13 +25,16 @@
 
 Вне *Visual Studio* запустить интерпретатор можно программой *fsi*.
 
-## Пример использования .NET
+## Примеры использования .NET
 
 ```F#
 > open System;;
 > let now = DateTime.Now;;
 
 val now : DateTime = 06.11.2016 15:29:42
+
+>Math.PI;;
+val it : float = 3.141592654
 ```
 
 ## Комментарии
@@ -124,9 +128,10 @@ val it : char = 'e'
 
 В качестве *структур данных* выступают:
 
-- списки (lists);
-- кортежи (tupples);
-- последовательности (sequences);;
+- списки (*lists*);
+- кортежи (*tupples*);
+- массивы (*arrays*);
+- последовательности (*sequences*);;
 
 ### Списки
 
@@ -151,7 +156,77 @@ val list : char list =
    'p'; 'q'; 'r'; 's'; 't'; 'u'; 'v'; 'w'; 'x'; 'y'; 'z']
 ```
 
+Пример определения списка с шагом:
+
+```F#
+> let lst = [1 .. 2 .. 10];;
+val lst : int list = [1; 3; 5; 7; 9]
+```
+
+Мы можем использовать для создания списка **генераторы**, - специальные конструкции, заключенные в квадратные скобки:
+
+```F#
+> let evens = [
+  for i in 1..10 do
+    if i % 2 = 0 then
+      yield i
+]
+val evens : int list = [2; 4; 6; 8; 10]
+```
+
+Вариант с использованием *лямбда-функции*:
+
+```F#
+let lst = [for i in 1..10 -> i*i] // [1, 4, 9,..]
+```
+
+
+
+### Кортежи
 ..
+
+### Массивы
+..
+
+### Последовательности
+..
+
+
+## Операторы и операции
+
+В языке F# имеется набор операторов, поддерживающих управляющую логику и циклы.
+
+```F#
+..
+let choice a b =
+   if a>b then 'a' else 'b'
+```
+
+Обработка списка циклом **for**:
+
+```F#
+> let lst = [1..10];;
+val lst : int list = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
+
+> for item in lst do printfn "%A" item;;
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+val it : unit = ()
+```
+
+Оператор **yield** используется для возвращения элемента из функции или цикла, например, для формирования списка (см. пример в разделе "списки"). 
+
+
+
+
 
 ## Функции
 
@@ -160,18 +235,45 @@ val list : char list =
 ```F#
 >let square = x * x;;
 val square : int -> int
+
 >square 2;;
 val it : int = 4
 ```
 
 Функция **square** принимает параметр *int* и возвращает результат типа *int*.
 
+
+Другая функция использует в работе ранее определенную:
+
+```F#
+> let sum_of_squares x y = square x + square y;;
+val sum_of_squares : x:int -> y:int -> int
+
+> sum_of_squares 3 4;;
+val it : int = 25
+```
+
+Странный тип выражения становится понятным, если рассмотреть следующий пример:
+
 ```F#
 > let add x y = x + y;;
 val add : int -> int -> int
 ```
 
-В данном случае функция *add* принимает два параметра и возвращает функцию, принимающую один параметр, возвращая, в свою очередь, целое число. 
+В данном случае функция *add* принимает два параметра и возвращает функцию, принимающую один параметр, возвращая, в свою очередь, целое число. Этот пример позволяет понять свойство *карриуемости*:
+
+Функции могут быть *каррированными*, то есть в них не передается весь набор параметров сразу:
+
+```F#
+> let add x y = x + y;;
+val add : x:int -> y:int -> int
+
+> let inc = add 1;;
+val inc : (int -> int)
+
+> inc 5;;
+val it : int = 6
+```
 
 Можно явно указать типы параметров:
 
@@ -189,6 +291,48 @@ val prn : 'a -> 'a
 
 В качестве обобщенного типа может использоваться любой тип. 
 
+Безымянные функции (*лямбда-функции*) задаются без имени:
+
+```F#
+> fun x -> x * x;;
+val it : x:int -> int = <fun:clo@9>
+> it 6;;
+val it : int = 36
+```
+
+Лямбда-функции являются очень удобным инструментом при обработках элементов структур данных.
+
+#### О важности пробелов (отступов)
+
+В теле функции мы используем отступы, чтобы отделить внутренние определения от их использования:
+
+```F#
+> let mid x y =
+-   let sum a b =
+-     a + b
+-   (sum x y) / 2;;
+val mid : x:int -> y:int -> int
+
+> mid 4 2;;
+val it : int = 3
+```
+
+#### Рекурсия
+
+**Рекурсивные** функции используются для реализации циклических алгоритмов:
+
+```F#
+> let rec factor n = 
+      if n<=1 then 
+         1 
+      else 
+         n * factor (n - 1);;
+
+val factor : n:int -> int
+
+> factor 10;;
+val it : int = 3628800
+```
 
 ### Генераторы списков
 
@@ -198,20 +342,20 @@ val prn : 'a -> 'a
 
 ## Литература
 
-- Крис Смит *Программирование на F#*, Символ-Плюс, 2011.
-- Chris Smith *Programming F#*, O'Reilly Media, 2009.
-- Jon Harrop, Don Syme *F# for Scientists*, Wiley-Interscience, 2008.
-- Robert Pickering, Kit Eason *Beginning F# 4.0*, Apress, 2016.
-- Dave Fancher *The Book of F#: Breaking Free With Managed Functional Programming*, No Starch Press, 2014.
-- Adnan Masood *Learning F# Functional Data Structures and Algorithms*, Packt, 2015.
-- Tomas Petricek, Phillip Trelford *F# Deep Dives, Manning Publications*, 2014.
-- swlaschin *F# for Fun and Profit*, GITBOOK
-- James Graff *The Fsharp Handbook*, CreateSpace, 2016.
-- Tomas Petricek, Jon Skeet *Real-World Functional Programming: With Examples in F# and C#*, Manning Publications, 2010.
-- Robert Pickering *Foundations of F#*, Apress, 2007.
-- Robert Pickering *Beginning F#*, Apress, 2009.
-- Don Syme *Expert F#*, Apress, 2007.
-- Michael R. Hansen, Hans Rischel *Functional Programming Using F#*, Cambridge Press, 2013.
+- Крис Смит. *Программирование на F#*, Символ-Плюс, 2011.
+- Chris Smith. *Programming F#*, O'Reilly Media, 2009.
+- Jon Harrop, Don Syme. *F# for Scientists*, Wiley-Interscience, 2008.
+- Robert Pickering, Kit Eason. *Beginning F# 4.0*, Apress, 2016.
+- Dave Fancher. *The Book of F#: Breaking Free With Managed Functional Programming*, No Starch Press, 2014.
+- Adnan Masood. *Learning F# Functional Data Structures and Algorithms*, Packt, 2015.
+- Tomas Petricek, Phillip Trelford. *F# Deep Dives, Manning Publications*, 2014.
+- swlaschin. *F# for Fun and Profit*, GITBOOK
+- James Graff. *The Fsharp Handbook*, CreateSpace, 2016.
+- Tomas Petricek, Jon Skeet. *Real-World Functional Programming: With Examples in F# and C#*, Manning Publications, 2010.
+- Robert Pickering. *Foundations of F#*, Apress, 2007.
+- Robert Pickering. *Beginning F#*, Apress, 2009.
+- Don Syme. *Expert F#*, Apress, 2007.
+- Michael R. Hansen, Hans Rischel. *Functional Programming Using F#*, Cambridge Press, 2013.
 
 
 
