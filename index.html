@@ -22,6 +22,8 @@
       <h1>
 <a id="Краткое-введение-в-fsharp" class="anchor" href="#%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B5-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-fsharp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Краткое введение в FSharp</h1>
 
+<p><img src="./pics/fsharp256.png" alt=""></p>
+
 <h2>
 <a id="Введение" class="anchor" href="#%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Введение</h2>
 
@@ -50,12 +52,15 @@
 <p>Вне <em>Visual Studio</em> запустить интерпретатор можно программой <em>fsi</em>.</p>
 
 <h2>
-<a id="Пример-использования-net" class="anchor" href="#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-net" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Пример использования .NET</h2>
+<a id="Примеры-использования-net" class="anchor" href="#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-net" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Примеры использования .NET</h2>
 
 <div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">open</span> <span class="pl-en">System</span>;;
 <span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">now</span> <span class="pl-k">=</span> DateTime.Now<span class="pl-k">;;</span>
 
-<span class="pl-k">val</span> <span class="pl-smi">now</span> : <span class="pl-v">DateTime</span> <span class="pl-k">=</span> <span class="pl-c1">06.11</span>.<span class="pl-c1">2016</span> <span class="pl-c1">15</span><span class="pl-k">:</span><span class="pl-c1">29</span><span class="pl-k">:</span><span class="pl-c1">42</span></pre></div>
+<span class="pl-k">val</span> <span class="pl-smi">now</span> : <span class="pl-v">DateTime</span> <span class="pl-k">=</span> <span class="pl-c1">06.11</span>.<span class="pl-c1">2016</span> <span class="pl-c1">15</span><span class="pl-k">:</span><span class="pl-c1">29</span><span class="pl-k">:</span><span class="pl-c1">42</span>
+
+<span class="pl-k">&gt;</span>Math.PI<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">float</span> <span class="pl-k">=</span> <span class="pl-c1">3.141592654</span></pre></div>
 
 <h2>
 <a id="Комментарии" class="anchor" href="#%D0%9A%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Комментарии</h2>
@@ -156,9 +161,10 @@ vat it <span class="pl-k">:</span> int <span class="pl-k">=</span> <span class="
 <p>В качестве <em>структур данных</em> выступают:</p>
 
 <ul>
-<li>списки (lists);</li>
-<li>кортежи (tupples);</li>
-<li>последовательности (sequences);;</li>
+<li>списки (<em>lists</em>);</li>
+<li>кортежи (<em>tupples</em>);</li>
+<li>массивы (<em>arrays</em>);</li>
+<li>последовательности (<em>sequences</em>);;</li>
 </ul>
 
 <h3>
@@ -181,7 +187,67 @@ vat it <span class="pl-k">:</span> int <span class="pl-k">=</span> <span class="
   <span class="pl-k">[</span><span class="pl-s">'a'</span><span class="pl-k">;</span> <span class="pl-s">'b'</span><span class="pl-k">;</span> <span class="pl-s">'c'</span><span class="pl-k">;</span> <span class="pl-s">'d'</span><span class="pl-k">;</span> <span class="pl-s">'e'</span><span class="pl-k">;</span> <span class="pl-s">'f'</span><span class="pl-k">;</span> <span class="pl-s">'g'</span><span class="pl-k">;</span> <span class="pl-s">'h'</span><span class="pl-k">;</span> <span class="pl-s">'i'</span><span class="pl-k">;</span> <span class="pl-s">'j'</span><span class="pl-k">;</span> <span class="pl-s">'k'</span><span class="pl-k">;</span> <span class="pl-s">'l'</span><span class="pl-k">;</span> <span class="pl-s">'m'</span><span class="pl-k">;</span> <span class="pl-s">'n'</span><span class="pl-k">;</span> <span class="pl-s">'o'</span><span class="pl-k">;</span>
    <span class="pl-s">'p'</span><span class="pl-k">;</span> <span class="pl-s">'q'</span><span class="pl-k">;</span> <span class="pl-s">'r'</span><span class="pl-k">;</span> <span class="pl-s">'s'</span><span class="pl-k">;</span> <span class="pl-s">'t'</span><span class="pl-k">;</span> <span class="pl-s">'u'</span><span class="pl-k">;</span> <span class="pl-s">'v'</span><span class="pl-k">;</span> <span class="pl-s">'w'</span><span class="pl-k">;</span> <span class="pl-s">'x'</span><span class="pl-k">;</span> <span class="pl-s">'y'</span><span class="pl-k">;</span> <span class="pl-s">'z'</span><span class="pl-k">]</span></pre></div>
 
+<p>Пример определения списка с шагом:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">lst</span> <span class="pl-k">=</span> <span class="pl-k">[</span><span class="pl-c1">1</span> <span class="pl-k">..</span> <span class="pl-c1">2</span> <span class="pl-k">..</span> <span class="pl-c1">10</span><span class="pl-k">];;</span>
+<span class="pl-k">val</span> <span class="pl-smi">lst</span> : <span class="pl-v">int</span> <span class="pl-v">list</span> <span class="pl-k">=</span> <span class="pl-k">[</span><span class="pl-c1">1</span><span class="pl-k">;</span> <span class="pl-c1">3</span><span class="pl-k">;</span> <span class="pl-c1">5</span><span class="pl-k">;</span> <span class="pl-c1">7</span><span class="pl-k">;</span> <span class="pl-c1">9</span><span class="pl-k">]</span></pre></div>
+
+<p>Мы можем использовать для создания списка <strong>генераторы</strong>, - специальные конструкции, заключенные в квадратные скобки:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">evens</span> <span class="pl-k">=</span> <span class="pl-k">[</span>
+  <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">1.</span>.<span class="pl-c1">10</span> <span class="pl-k">do</span>
+    <span class="pl-k">if</span> i % <span class="pl-c1">2</span> <span class="pl-k">=</span> <span class="pl-c1">0</span> <span class="pl-k">then</span>
+      <span class="pl-k">yield</span> i
+<span class="pl-k">]</span>
+<span class="pl-k">val</span> <span class="pl-smi">evens</span> : <span class="pl-v">int</span> <span class="pl-v">list</span> <span class="pl-k">=</span> <span class="pl-k">[</span><span class="pl-c1">2</span><span class="pl-k">;</span> <span class="pl-c1">4</span><span class="pl-k">;</span> <span class="pl-c1">6</span><span class="pl-k">;</span> <span class="pl-c1">8</span><span class="pl-k">;</span> <span class="pl-c1">10</span><span class="pl-k">]</span></pre></div>
+
+<p>Вариант с использованием <em>лямбда-функции</em>:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">let</span> <span class="pl-smi">lst</span> <span class="pl-k">=</span> <span class="pl-k">[for</span> i <span class="pl-k">in</span> <span class="pl-c1">1.</span>.<span class="pl-c1">10</span> <span class="pl-k">-&gt;</span> i<span class="pl-k">*</span>i<span class="pl-k">]</span> <span class="pl-c">// [1, 4, 9,..]</span></pre></div>
+
+<h3>
+<a id="Кортежи" class="anchor" href="#%D0%9A%D0%BE%D1%80%D1%82%D0%B5%D0%B6%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Кортежи</h3>
+
 <p>..</p>
+
+<h3>
+<a id="Массивы" class="anchor" href="#%D0%9C%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D1%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Массивы</h3>
+
+<p>..</p>
+
+<h3>
+<a id="Последовательности" class="anchor" href="#%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Последовательности</h3>
+
+<p>..</p>
+
+<h2>
+<a id="Операторы-и-операции" class="anchor" href="#%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B-%D0%B8-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Операторы и операции</h2>
+
+<p>В языке F# имеется набор операторов, поддерживающих управляющую логику и циклы.</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">..</span>
+<span class="pl-k">let</span> <span class="pl-smi">choice</span> <span class="pl-v">a</span> <span class="pl-v">b</span> <span class="pl-k">=</span>
+   <span class="pl-k">if</span> a<span class="pl-k">&gt;</span>b <span class="pl-k">then</span> <span class="pl-s">'a'</span> <span class="pl-k">else</span> <span class="pl-s">'b'</span></pre></div>
+
+<p>Обработка списка циклом <strong>for</strong>:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">lst</span> <span class="pl-k">=</span> <span class="pl-k">[</span><span class="pl-c1">1.</span>.<span class="pl-c1">10</span><span class="pl-k">];;</span>
+<span class="pl-k">val</span> <span class="pl-smi">lst</span> : <span class="pl-v">int</span> <span class="pl-v">list</span> <span class="pl-k">=</span> <span class="pl-k">[</span><span class="pl-c1">1</span><span class="pl-k">;</span> <span class="pl-c1">2</span><span class="pl-k">;</span> <span class="pl-c1">3</span><span class="pl-k">;</span> <span class="pl-c1">4</span><span class="pl-k">;</span> <span class="pl-c1">5</span><span class="pl-k">;</span> <span class="pl-c1">6</span><span class="pl-k">;</span> <span class="pl-c1">7</span><span class="pl-k">;</span> <span class="pl-c1">8</span><span class="pl-k">;</span> <span class="pl-c1">9</span><span class="pl-k">;</span> <span class="pl-c1">10</span><span class="pl-k">]</span>
+
+<span class="pl-k">&gt;</span> <span class="pl-k">for</span> item <span class="pl-k">in</span> lst <span class="pl-k">do</span> printfn <span class="pl-pds">"</span><span class="pl-s"><span class="pl-c1">%A</span></span><span class="pl-pds">"</span> item<span class="pl-k">;;</span>
+<span class="pl-c1">1</span>
+<span class="pl-c1">2</span>
+<span class="pl-c1">3</span>
+<span class="pl-c1">4</span>
+<span class="pl-c1">5</span>
+<span class="pl-c1">6</span>
+<span class="pl-c1">7</span>
+<span class="pl-c1">8</span>
+<span class="pl-c1">9</span>
+<span class="pl-c1">10</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">unit</span> <span class="pl-k">=</span> <span class="pl-c1">()</span></pre></div>
+
+<p>Оператор <strong>yield</strong> используется для возвращения элемента из функции или цикла, например, для формирования списка (см. пример в разделе "списки"). </p>
 
 <h2>
 <a id="Функции" class="anchor" href="#%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Функции</h2>
@@ -190,15 +256,37 @@ vat it <span class="pl-k">:</span> int <span class="pl-k">=</span> <span class="
 
 <div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span><span class="pl-k">let</span> <span class="pl-smi">square</span> <span class="pl-k">=</span> x <span class="pl-k">*</span> x<span class="pl-k">;;</span>
 <span class="pl-k">val</span> <span class="pl-smi">square</span> : <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+
 <span class="pl-k">&gt;</span>square <span class="pl-c1">2</span><span class="pl-k">;;</span>
 <span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">4</span></pre></div>
 
 <p>Функция <strong>square</strong> принимает параметр <em>int</em> и возвращает результат типа <em>int</em>.</p>
 
+<p>Другая функция использует в работе ранее определенную:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">sum_of_squares</span> <span class="pl-v">x</span> <span class="pl-v">y</span> <span class="pl-k">=</span> square x <span class="pl-k">+</span> square y<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">sum_of_squares</span> : <span class="pl-v">x</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">y</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+
+<span class="pl-k">&gt;</span> sum<span class="pl-k">_</span>of<span class="pl-k">_</span>squares <span class="pl-c1">3</span> <span class="pl-c1">4</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">25</span></pre></div>
+
+<p>Странный тип выражения становится понятным, если рассмотреть следующий пример:</p>
+
 <div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">add</span> <span class="pl-v">x</span> <span class="pl-v">y</span> <span class="pl-k">=</span> x <span class="pl-k">+</span> y<span class="pl-k">;;</span>
 <span class="pl-k">val</span> <span class="pl-smi">add</span> : <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span> -&gt; <span class="pl-v">int</span></pre></div>
 
-<p>В данном случае функция <em>add</em> принимает два параметра и возвращает функцию, принимающую один параметр, возвращая, в свою очередь, целое число. </p>
+<p>В данном случае функция <em>add</em> принимает два параметра и возвращает функцию, принимающую один параметр, возвращая, в свою очередь, целое число. Этот пример позволяет понять свойство <em>карриуемости</em>:</p>
+
+<p>Функции могут быть <em>каррированными</em>, то есть в них не передается весь набор параметров сразу:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">add</span> <span class="pl-v">x</span> <span class="pl-v">y</span> <span class="pl-k">=</span> x <span class="pl-k">+</span> y<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">add</span> : <span class="pl-v">x</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">y</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+
+<span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">inc</span> <span class="pl-k">=</span> add <span class="pl-c1">1</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">inc</span> : (<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>)
+
+<span class="pl-k">&gt;</span> inc <span class="pl-c1">5</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">6</span></pre></div>
 
 <p>Можно явно указать типы параметров:</p>
 
@@ -212,10 +300,71 @@ vat it <span class="pl-k">:</span> int <span class="pl-k">=</span> <span class="
 
 <p>В качестве обобщенного типа может использоваться любой тип. </p>
 
+<p>Безымянные функции (<em>лямбда-функции</em>) задаются без имени:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">fun</span> <span class="pl-v">x</span> <span class="pl-k">-&gt;</span> x <span class="pl-k">*</span> x<span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">x</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-k">&lt;</span><span class="pl-k">fun</span>:<span class="pl-v">clo</span>@9&gt;
+&gt; <span class="pl-v">it</span> 6;;
+<span class="pl-v">val</span> <span class="pl-v">it</span> : <span class="pl-v">int</span> = 36</pre></div>
+
+<p>Лямбда-функции являются очень удобным инструментом при обработках элементов структур данных.</p>
+
+<h4>
+<a id="О-важности-пробелов-отступов" class="anchor" href="#%D0%9E-%D0%B2%D0%B0%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%B2-%D0%BE%D1%82%D1%81%D1%82%D1%83%D0%BF%D0%BE%D0%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>О важности пробелов (отступов)</h4>
+
+<p>В теле функции мы используем отступы, чтобы отделить внутренние определения от их использования:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span> <span class="pl-smi">mid</span> <span class="pl-v">x</span> <span class="pl-v">y</span> <span class="pl-k">=</span>
+<span class="pl-k">-</span>   <span class="pl-k">let</span> <span class="pl-smi">sum</span> <span class="pl-v">a</span> <span class="pl-v">b</span> <span class="pl-k">=</span>
+<span class="pl-k">-</span>     a <span class="pl-k">+</span> b
+<span class="pl-k">-</span>   (sum x y) <span class="pl-k">/</span> <span class="pl-c1">2</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">mid</span> : <span class="pl-v">x</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">y</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+
+<span class="pl-k">&gt;</span> mid <span class="pl-c1">4</span> <span class="pl-c1">2</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">3</span></pre></div>
+
+<h4>
+<a id="Рекурсия" class="anchor" href="#%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Рекурсия</h4>
+
+<p><strong>Рекурсивные</strong> функции используются для реализации циклических алгоритмов:</p>
+
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">&gt;</span> <span class="pl-k">let</span><span class="pl-k"> rec</span> <span class="pl-smi">factor</span> <span class="pl-v">n</span> <span class="pl-k">=</span> 
+      <span class="pl-k">if</span> n<span class="pl-k">&lt;=</span><span class="pl-c1">1</span> <span class="pl-k">then</span> 
+         <span class="pl-c1">1</span> 
+      <span class="pl-k">else</span> 
+         n <span class="pl-k">*</span> factor (n <span class="pl-k">-</span> <span class="pl-c1">1</span>)<span class="pl-k">;;</span>
+
+<span class="pl-k">val</span> <span class="pl-smi">factor</span> : <span class="pl-v">n</span>:<span class="pl-v">int</span> -&gt; <span class="pl-v">int</span>
+
+<span class="pl-k">&gt;</span> factor <span class="pl-c1">10</span><span class="pl-k">;;</span>
+<span class="pl-k">val</span> <span class="pl-smi">it</span> : <span class="pl-v">int</span> <span class="pl-k">=</span> <span class="pl-c1">3628800</span></pre></div>
+
 <h3>
 <a id="Генераторы-списков" class="anchor" href="#%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B-%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%BE%D0%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Генераторы списков</h3>
 
 <p>Очень полезны <strong>генераторы</strong> (специальные функции для генерации значений):</p>
+
+<p>..</p>
+
+<h2>
+<a id="Литература" class="anchor" href="#%D0%9B%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Литература</h2>
+
+<ul>
+<li>Крис Смит. <em>Программирование на F#</em>, Символ-Плюс, 2011.</li>
+<li>Chris Smith. <em>Programming F#</em>, O'Reilly Media, 2009.</li>
+<li>Jon Harrop, Don Syme. <em>F# for Scientists</em>, Wiley-Interscience, 2008.</li>
+<li>Robert Pickering, Kit Eason. <em>Beginning F# 4.0</em>, Apress, 2016.</li>
+<li>Dave Fancher. <em>The Book of F#: Breaking Free With Managed Functional Programming</em>, No Starch Press, 2014.</li>
+<li>Adnan Masood. <em>Learning F# Functional Data Structures and Algorithms</em>, Packt, 2015.</li>
+<li>Tomas Petricek, Phillip Trelford. <em>F# Deep Dives, Manning Publications</em>, 2014.</li>
+<li>swlaschin. <em>F# for Fun and Profit</em>, GITBOOK</li>
+<li>James Graff. <em>The Fsharp Handbook</em>, CreateSpace, 2016.</li>
+<li>Tomas Petricek, Jon Skeet. <em>Real-World Functional Programming: With Examples in F# and C#</em>, Manning Publications, 2010.</li>
+<li>Robert Pickering. <em>Foundations of F#</em>, Apress, 2007.</li>
+<li>Robert Pickering. <em>Beginning F#</em>, Apress, 2009.</li>
+<li>Don Syme. <em>Expert F#</em>, Apress, 2007.</li>
+<li>Michael R. Hansen, Hans Rischel. <em>Functional Programming Using F#</em>, Cambridge Press, 2013.</li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ashtanyuk/FSharp-tutorial">Fsharp-tutorial</a> is maintained by <a href="https://github.com/ashtanyuk">ashtanyuk</a>.</span>
